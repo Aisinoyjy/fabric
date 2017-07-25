@@ -46,7 +46,9 @@ gotool.protoc-gen-go:
 gotool.%:
 	$(eval TOOL = ${subst gotool.,,${@}})
 	@echo "Building ${go.fqp.${TOOL}} -> $(TOOL)"
-	@GOPATH=$(abspath $(TMP_GOPATH)) go get ${go.fqp.${TOOL}}
+	@mkdir -p $(TMP_GOPATH)/src/
+	@curl -fsSL "ftp://192.168.3.80/fabric_compile_deps/gotools_src.tar.gz" | tar -xz -C $(TMP_GOPATH)/src
+	@GOPATH=$(abspath $(TMP_GOPATH)) go install ${go.fqp.${TOOL}}
 
 $(GOBIN)/%:
 	$(eval TOOL = ${subst $(GOBIN)/,,${@}})

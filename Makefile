@@ -65,7 +65,7 @@ GO_LDFLAGS = $(patsubst %,-X $(PKGNAME)/common/metadata.%,$(METADATA_VAR))
 
 GO_TAGS ?=
 
-CHAINTOOL_URL ?= https://github.com/hyperledger/fabric-chaintool/releases/download/$(CHAINTOOL_RELEASE)/chaintool
+CHAINTOOL_URL ?= ftp://192.168.3.80/fabric_compile_deps/chaintool
 
 export GO_LDFLAGS
 
